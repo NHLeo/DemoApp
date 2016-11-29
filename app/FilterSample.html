@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Sample</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
+</head>
+
+<body>
+<div class="container">
+    <div ng-controller="FilterSampleController" style="padding:20px;">
+
+        Duration 1: {{data.duration1}} <br/>
+        Duration 2: {{data.duration2}} <br/>
+        Duration 3: {{data.duration3}} <br/>
+        Duration 4: {{data.duration4}} <br/>
+
+        <br/>
+        <h3>Obtained w/o $filter</h3>
+        <br/>
+
+        Duration 1 (direct): {{data.duration1_direct}} <br/>
+        Duration 2 (direct): {{data.duration2_direct}} <br/>
+        Duration 3 (direct): {{data.duration3_direct}} <br/>
+        Duration 4 (direct): {{data.duration4_direct}} <br/>
+
+
+    </div>
+</div>
+
+</body>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-1.4.4.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-resource.js"></script>
+<script src="lib/angular/angular-sanitize.js"></script>
+<script src="js/app.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/controllers/FilterSampleController.js"></script>
+
+
+</html>
