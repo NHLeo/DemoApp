@@ -1,7 +1,7 @@
 'use strict';
 
 eventsApp.controller('EventController',
-    function EventController($scope){
+    function EventController($scope, eventData, $log, $anchorScroll){
         $scope.snippet='<span style="color:red">hi there</span>';
         $scope.boolValue = true;
         $scope.mystyle={color:'red'};
@@ -9,43 +9,19 @@ eventsApp.controller('EventController',
         $scope.buttonDisabled=true;
         $scope.sortorder='name';
 
-        $scope.event = {
-            name: 'Angular Boot Camp',
-            date: '1/1/2014',
-            time: '11:30 am',
-            location: {
-                address: 'Google HQ',
-                city: 'Mountain View',
-                province: 'CA'
-            },
-            imageUrl: '/img/angularjs-logo.png',
-            sessions: [
-                {
-                    name: 'Directives Masterclass Introductory',
-                    creatorName: 'Bob Smith',
-                    duration: 1,
-                    level: 'Advanced',
-                    abstract: 'In this session, you will learn the ins and outs of directives.',
-                    upVoteCount: 0
-                },
-                {
-                    name: 'Scopes for fun and profit',
-                    creatorName: 'John Doe',
-                    duration: 2,
-                    level: 'Introductory',
-                    abstract: 'This session will take a close looks at scopes.  Learn a bunch of stuff about scopes.',
-                    upVoteCount: 0
-                },
-                {
-                    name: 'Well Behaved Controllers',
-                    creatorName: 'Jane Doe',
-                    duration: 4,
-                    level: 'Intermediate',
-                    abstract: 'Controllers are the beginning of everything that Angular does.  In this session, you will learn a whole bunch about controllers.',
-                    upVoteCount: 0
-                }
-            ]
-        };
+        eventData.getEvent()
+            .$promise
+                .then(function (event) {$scope.event = event; console.log(event);})
+                .catch(function (response) {console.log(response);}
+        );
+        /* This is used when we used $http to get the event data
+        eventData.getEvent()
+            .success(function(event) {$scope.event = event;})
+            .error(function(data, status, headers, config) {
+                $log.warn("HTTP GET returned an error.  Details to follow:");
+                $log.warn(data, status, headers, config);
+            });
+        */
 
         $scope.upVoteSession = function(session) {
             session.upVoteCount++;
@@ -55,6 +31,10 @@ eventsApp.controller('EventController',
             if (session.upVoteCount > 0) {
                 session.upVoteCount--;
             }
+        };
+
+        $scope.scrollToSession = function () {
+            $anchorScroll();
         };
 
 

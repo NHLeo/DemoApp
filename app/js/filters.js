@@ -20,3 +20,21 @@ eventsApp.filter('durations', function() {
         return durStr;
     }
 });
+
+eventsApp.filter('courseLevels', function() {
+    return function (level) {
+        var imgSrc = "/img/unknown.png";
+        switch (level) {
+            case "Introductory":
+                imgSrc = "/img/beginner.png";
+                break;
+            case "Intermediate":
+                imgSrc = "/img/intermediate.png";
+                break;
+            case "Advanced":
+                imgSrc = "/img/advanced.png";
+                break;
+        }
+        return imgSrc;
+    }
+});

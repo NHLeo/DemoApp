@@ -4,11 +4,15 @@
 'use strict';
 
 eventsApp.controller ('EditEventController',
-    function EditEventController ($scope){
+    function EditEventController ($scope, eventData){
         $scope.saveEvent = function (event, newEventForm) {
             console.log(newEventForm);
             if (newEventForm.$valid) {
-                window.alert('event ' + event.name + ' saved!');
+                eventData.save(event)
+                    .$promise
+                    .then(function(response) {console.log('success', response);})
+                    .catch(function(response) {console.log('failure', response);}
+                );
             }
         };
 
@@ -17,3 +21,32 @@ eventsApp.controller ('EditEventController',
         };
     }
 );
+
+/*
+var DATE_REGEXP = "/\d\d/\d\d/\d\d\d\d/";
+eventsApp.directive('dirEventDate', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, elm, attrs, ctrl) {
+            ctrl.$validators.dirEventDate = function(modelValue, viewValue) {
+                if (ctrl.$isEmpty(modelValue)) {
+                    // consider empty models to be valid
+                    return true;
+                }
+
+                if (DATE_REGEXP.test(viewValue)) {
+                    var incomingDate = new Date(viewValue);
+                    var currentDate = new Date();
+                    if (incomingDate > currentDate) {
+                        // it is valid
+                        return true;
+                    }
+                }
+
+                // it is invalid
+                return false;
+            };
+        }
+    };
+});
+*/
