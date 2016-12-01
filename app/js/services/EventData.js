@@ -4,6 +4,7 @@
 
 eventsApp.factory ('eventData', function ($resource) {
     var eventResource = $resource('/data/event/:id', {id:'@id'});
+    var eventQueryResource = $resource('/data/event');
 
     return {
        getEvent: function () {
@@ -12,43 +13,23 @@ eventsApp.factory ('eventData', function ($resource) {
        save: function (event) {
            var maxId = 0;
 
-/*           var events = eventResource.query();
-           events.$promise.then (
-               function(eventsData) {
-                    console.log(eventsData);
-               });
-
-           console.log ("Query returned: " + events);*/
-
-
-           eventResource.query(function (events) {
-               console.log('Events returned:');
-               console.log(events);
-           }).$promise.then(function (response) {
-               console.log('In the promise:');
-               console.log(response);
-           }).catch(function (response1) {
-               console.log('failure1', response1)
-           });
-
-
-
-/*
-           resource.query()
+           eventQueryResource.query()
                .$promise
                .then(function (eventArray) {
                    var arrayLen = eventArray.length;
                    for (i = 0; i < arrayLen; i++) {
-                       if (eventArray[i].id > maxId) {
-                            maxId = eventArray[i].id;
+                       if (eventArray[i].id >= maxId) {
+                           maxId = eventArray[i].id;
                        }
                    }
+                   event.id = maxId + 1;
+                   console.log ("event id = " + event.id);
+                   return eventResource.save(event);
                })
                .catch(function (response) {console.log(response);}
                );
-*/
-           event.id = maxId + 998;
-           return eventResource.save(event);
+
+
        }
     };
 });
