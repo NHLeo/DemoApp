@@ -42,7 +42,7 @@
         <div class="row-fluid">
             <div class="span6 offset3">
                 <div class="pull-left"><span class="btn">Cancel</span></div>
-                <div class="pull-right"><button type="submit" class="btn btn-primary">Save</button></div>
+                <div class="pull-right"><button type="submit" ng-click="saveUser(user, profileForm)" class="btn btn-primary">Save</button></div>
             </div>
         </div>
     </form>
@@ -51,6 +51,8 @@
 
 <script src="lib/jquery.min.js"></script>
 <script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-resource.js"></script>
+<script src="lib/angular/angular-cookies.js"></script>
 <script src="lib/angular/angular-sanitize.js"></script>
 <script src="lib/underscore-1.4.4.min.js"></script>
 <script src="js/app.js"></script>
@@ -58,6 +60,7 @@
 <script src="js/filters.js"></script>
 <script src="lib/bootstrap.min.js"></script>
 <script src="js/services/GravatarUrlBuilder.js"></script>
+<script src="js/services/UserData.js"></script>
 
 </body>
 </html>
