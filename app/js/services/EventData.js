@@ -7,8 +7,8 @@ eventsApp.factory ('eventData', function ($resource) {
     var eventQueryResource = $resource('/data/event');
 
     return {
-       getEvent: function () {
-           return eventResource.get({id: 1});
+       getEvent: function (eventId) {
+           return eventResource.get({id: eventId});
        },
        save: function (event) {
            var maxId = 0;
@@ -30,6 +30,9 @@ eventsApp.factory ('eventData', function ($resource) {
                );
 
 
+       },
+       getAllEvents: function () {
+           return eventResource.query();
        }
     };
 });
