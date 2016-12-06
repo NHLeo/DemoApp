@@ -1,7 +1,7 @@
 'use strict';
 
 /*var eventsApp = angular.module('eventsApp', ['ngSanitize','ngResource', 'ngCookies'])*/
-var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
+var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngCookies'])
     // The config block is run when the application is being bootstrapped by Angular
     .config (function($routeProvider) {
         $routeProvider.when('/newEvent',
