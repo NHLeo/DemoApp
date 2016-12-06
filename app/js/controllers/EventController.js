@@ -1,13 +1,17 @@
 'use strict';
 
 eventsApp.controller('EventController',
-    function EventController($scope, eventData, $log, $anchorScroll, $cookieStore, $routeParams){
+    function EventController($scope, eventData, $log, $anchorScroll, $cookieStore, $routeParams, $route){
         $scope.snippet='<span style="color:red">hi there</span>';
         $scope.boolValue = true;
         $scope.mystyle={color:'red'};
         $scope.myclass="blue";
         $scope.buttonDisabled=true;
         $scope.sortorder='name';
+
+        console.log ('Query string param from route: foo = ' + $route.current.params.foo);
+        console.log ('Param from route: eventId = ' + $route.current.params.eventId);
+        console.log ('PATH Param from route: eventId = ' + $route.current.pathParams.eventId);
 
         $cookieStore.put ('sessionVotes', {sessions: []});
 
@@ -36,9 +40,6 @@ eventsApp.controller('EventController',
                     hasVoted = true;
                 }
             }
-
-            console.log("votes: " + sessionVotes.sessions);
-            console.log ("Session id: " + session.id  + " has voted = " + hasVoted);
 
             return hasVoted;
         }
@@ -76,6 +77,10 @@ eventsApp.controller('EventController',
 
         $scope.scrollToSession = function () {
             $anchorScroll();
+        };
+
+        $scope.reload = function () {
+            $route.reload();
         };
 
 
