@@ -35,5 +35,10 @@ eventsApp.controller('MainMenuController',
             $location.url('/about');
         };
 
+        $scope.sampleDirective = function () {
+            $location.replace();   // replace the current page with this page (switches view and doesn't add to the history
+            $location.url('/sampleDirective');
+        };
+
 
     });
