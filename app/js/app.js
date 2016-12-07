@@ -12,7 +12,12 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute', 'ngSanitiz
         $routeProvider.when('/events',
             {
                 templateUrl: 'templates/EventList.html',
-                controller: 'EventListController'
+                controller: 'EventListController',
+                resolve: {
+                    events: function ($route, eventData) {
+                        return eventData.getAllEvents().$promise;
+                    }
+                }
             });
         $routeProvider.when('/event/:eventId',
             {
@@ -24,6 +29,16 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute', 'ngSanitiz
                     }
                 }
             });
+        $routeProvider.when('/editProfile',
+            {
+                templateUrl: 'templates/EditProfile.html',
+                controller: 'EditProfileController'
+            });
+        $routeProvider.when ('/about',
+            {
+                template: '<h1>Site Version</h1></br><h3>1.0.0</h3>'
+            }
+        );
         $routeProvider.otherwise({redirectTo: '/events'});
         $locationProvider.html5Mode(true);
     })

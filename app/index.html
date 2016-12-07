@@ -14,7 +14,16 @@
     <div class="navbar" ng-controller="MainMenuController">
         <div class="navbar-inner">
             <ul class="nav">
+                <li><a href="#" ng-click="goHome()">Events</a></li>
+            </ul>
+            <ul class="nav">
                 <li><a href="#" ng-click="createEvent()">Create Event</a></li>
+            </ul>
+            <ul class="nav">
+                <li><a href="#" ng-click="editProfile()">Edit Profile</a></li>
+            </ul>
+            <ul class="nav">
+                <li><a href="#" ng-click="showAbout()">About</a></li>
             </ul>
         </div>
     </div>
@@ -38,6 +47,7 @@
 <script src="js/controllers/EventController.js"></script>
 <script src="js/controllers/EventListController.js"></script>
 <script src="js/controllers/EditEventController.js"></script>
+<script src="js/controllers/EditProfileController.js"></script>
 <script src="js/controllers/MainMenuController.js"></script>
 <script src="js/services/EventData.js"></script>
 <script src="js/filters.js"></script>
