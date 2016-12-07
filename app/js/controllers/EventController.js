@@ -15,11 +15,15 @@ eventsApp.controller('EventController',
 
         $cookieStore.put ('sessionVotes', {sessions: []});
 
+        $scope.event = $route.current.locals.event;
+
+        /*
         eventData.getEvent($routeParams.eventId)
             .$promise
                 .then(function (event) {$scope.event = event; console.log(event);})
                 .catch(function (response) {console.log(response);}
         );
+        */
         /* This is used when we used $http to get the event data
         eventData.getEvent()
             .success(function(event) {$scope.event = event;})
