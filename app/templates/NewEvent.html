@@ -10,7 +10,7 @@
                 <div>{{event.name}}</div>
                 <label for="eventDate">Event Date: </label>
 
-                <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/"  ng-model="event.date"  placeholder="format (mm/dd/yyyy)..."/>
+                <input id="eventDate" type="text" date-keys required ng-pattern="/\d\d/\d\d/\d\d\d\d/"  ng-model="event.date"  placeholder="format (mm/dd/yyyy)..."/>
                 <!--
                 <input id="eventDate" type="text" required ng-model="event.date"  placeholder="format (mm/dd/yyyy)..." dirEventDate/>
                 -->
