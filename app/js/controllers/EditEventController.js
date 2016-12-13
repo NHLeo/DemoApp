@@ -6,14 +6,14 @@
 eventsApp.controller ('EditEventController',
     function EditEventController ($scope, eventData){
         $scope.saveEvent = function (event, newEventForm) {
-            console.log(newEventForm);
+
             if (newEventForm.$valid) {
                 eventData.save(event)
                     .$promise
                     .then(function(response) {
-                        console.log('success', response);})
+                        console.log('Edit Event Controller - success', response);})
                     .catch(function(response) {
-                        console.log('failure', response);}
+                        console.log('Edit Event Controller - failure', response);}
                 );
             }
         };

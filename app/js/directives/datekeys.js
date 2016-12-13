@@ -18,11 +18,11 @@ eventsApp.directive('dateKeys', function(){
    }
 
     function isNumericKeyCode(keyCode) {
-        return (event.keyCode >= 48 && event.keyCode <=57)
-            || (event.keyCode >= 96 && event.keyCode <= 105);
+        return (keyCode >= 48 && keyCode <=57)
+            || (keyCode >= 96 && keyCode <= 105);
     }
-    function isForwardSlashKeyCode(keycode) {
-        return event.keyCode === 191;
+    function isForwardSlashKeyCode(keyCode) {
+        return keyCode === 191;
     }
     function isNavigationKeycode(keyCode) {
         switch(keyCode) {

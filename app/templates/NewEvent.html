@@ -3,10 +3,10 @@
     <div class="container">
         <h1>New Event</h1>
         <hr />
-        <form name="newEventForm">
+        <form name="newEventForm" enter-save>
             <fieldset>
                 <label for="eventName">Event Name: </label>
-                <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event..." />
+                <input id="eventName" type="text" required  focus-Here ng-model="event.name" placeholder="Name of your event..."/>
                 <div>{{event.name}}</div>
                 <label for="eventDate">Event Date: </label>
 
@@ -34,7 +34,7 @@
             <img ng-src="{{event.imageUrl}}" src="" />
             <br/>
             <br/>
-            <button type="submit" ng-disabled="newEventForm.$invalid" ng-click="saveEvent(event, newEventForm)" class="btn btn-primary">Save</button>
+            <button id="eventSubmit" type="submit" ng-disabled="newEventForm.$invalid" ng-click="saveEvent(event, newEventForm)" class="btn btn-primary">Save</button>
             <button type="button" ng-click="cancelEdit()"  class="btn btn-default">Cancel</button>
         </form>
     </div>

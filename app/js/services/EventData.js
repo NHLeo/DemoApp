@@ -23,10 +23,10 @@ eventsApp.factory ('eventData', function ($resource) {
                        }
                    }
                    event.id = maxId + 1;
-                   console.log ("event id = " + event.id);
+                   console.log ("eventData.save - event id = " + event.id);
                    return eventResource.save(event);
                })
-               .catch(function (response) {console.log(response);}
+               .catch(function (response) {console.log("Caught an error in eventData.save: " + response);}
                );
 
 
