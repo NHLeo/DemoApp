@@ -4,6 +4,10 @@
 var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngCookies'])
     // The config block is run when the application is being bootstrapped by Angular
     .config (function($routeProvider, $locationProvider) {
+        $routeProvider.when('/directiveCompileSample',
+            {
+                templateUrl:'templates/DirectiveCompileSample.html',
+            });
         $routeProvider.when('/directiveControllerSample',
             {
                 templateUrl:'templates/DirectiveControllerSample.html',
